@@ -1,0 +1,15 @@
+version: "3"
+services:
+  torrentr-server:
+    build:
+      context: ./backend
+    ports:
+      - "4241:4241"
+    container_name: node-api
+  torrentr-ui:
+    build:
+      context: ./frontend
+    ports:
+      - "4240:4240"
+    container_name: react-ui
+    stdin_open: true
