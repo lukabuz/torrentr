@@ -15,11 +15,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
 
-  console.log(query);
-
   const search = async () => {
     setLoading(true);
-    const results = await axios.get("http://localhost:4241/search", {
+    const results = await axios.get("http://192.168.0.190:4241/search", {
       params: {
         query,
       },
@@ -30,7 +28,7 @@ function App() {
 
   const downloadTorrent = async (magnet) => {
     try {
-      await axios.get("http://localhost:4241/add", {
+      await axios.get("http://192.168.0.190:4241/add", {
         params: {
           magnet,
         },
@@ -41,8 +39,6 @@ function App() {
       alert("Error adding torrent");
     }
   };
-
-  console.log(results);
 
   return (
     <div className="App">
